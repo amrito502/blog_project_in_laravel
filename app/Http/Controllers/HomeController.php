@@ -23,6 +23,7 @@ class HomeController extends Controller
     // post details
     public function details(Request $request , $postId)
     {
+        Post::find($postId)->increment('views');
         $detail = Post::find($postId);
         return view('detail', compact('detail'));
     }
